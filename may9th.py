@@ -66,8 +66,56 @@ def two_Sum( nums: [int], target: int) -> [int]:
             index += 1
         
 
-print(two_Sum([3,2,4],6))
+#print(two_Sum([3,2,4],6))
 
 
 def addtwonumbers(list1,list2):
+    len1 = len(list1)
+    len2 = len(list2)
+    length = min(len1,len2)
+    temp = 0 
+    result = []
+
+
+    for i in range(0,length) :
+        addsum = int(list1[len1-1-i]) + int(list2[len2-1-i])+temp
+        print(addsum)
+        temp = 0 
+        if addsum >= 10:
+            temp = 1 
+            digit = addsum-10 
+        else:
+            digit = addsum
+        result.insert(0,digit)
+
+    if len1 == len2 and temp == 1:
+        result.insert(0,1)
+        return result
+    elif len1 != length:
+        front = list1[:len1-length]
+    else:
+        front = list2[:len2-length]
+
+
+    for i in range (0,len(front)):
+        new_sum = int(front[len(front)-1-i])+temp
+        if new_sum >= 10:
+            new_digit = new_sum -10 
+            temp = 1
+        else:
+            new_digit = new_sum
+            temp = 0 
+        result.insert(0,new_digit)
+    if temp == 1:
+        result.insert(0,1)
+    return result
+
+
+a = '235'
+b = '9967'
+print(addtwonumbers(a,b))
+
+
+
+def lengthOfLongestSubstring(self, s: str) -> int:
     

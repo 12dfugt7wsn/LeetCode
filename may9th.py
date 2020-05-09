@@ -113,9 +113,21 @@ def addtwonumbers(list1,list2):
 
 a = '235'
 b = '9967'
-print(addtwonumbers(a,b))
+#print(addtwonumbers(a,b))
 
 
 
-def lengthOfLongestSubstring(self, s: str) -> int:
-    
+def lengthOfLongestSubstring( s: str) -> int:
+    max_length = 1
+    for i in range(0,len(s)):
+        count = 1
+        sub = s[i]
+        while count <= len(s)-1-i and  s[count+i] not in sub:
+            sub = sub+s[count+i]
+            count += 1    
+        if count > max_length:
+                max_length = count 
+        count = 1
+    return max_length
+
+print(lengthOfLongestSubstring('pwwkew'))

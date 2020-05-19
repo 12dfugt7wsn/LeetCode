@@ -49,7 +49,7 @@
         # return head
 
 
-def removeDuplicates(self, nums: List[int]) -> int:
+def removeDuplicates(self, nums: [int]) -> int:
     l, r = 0, 1
     while r < len(nums):
         while r < len(nums) and nums[l] == nums[r]: r += 1
@@ -58,7 +58,7 @@ def removeDuplicates(self, nums: List[int]) -> int:
             l += 1; r += 1
     return l+1
 
-def removeElement(self, nums: List[int], val: int) -> int:
+def removeElement(self, nums: [int], val: int) -> int:
         while val in nums:
             nums.pop(nums.index(val))
         return(len(nums))
